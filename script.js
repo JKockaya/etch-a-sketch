@@ -41,13 +41,18 @@ const genBtn = document.querySelector('button');
 genBtn.addEventListener('click', newCanvas);
 
 function newCanvas() {
-    const cellNum = prompt("Enter a grid size up to 100: ");
+    let validInput = false;
+
+    while (validInput === false) {
+    const cellNum = prompt("Enter a grid size up to 60: ");
+    if (cellNum == null || cellNum > 60) {
+        continue;
+    }
+    if (cellNum <= 60 && cellNum > 0) {
+    validInput = true;
     container.innerHTML = ``;
     createGrid(cellNum);
     gridDraw();
-
-
-    
-    
-
+    }
+    }
 } 
